@@ -20,6 +20,13 @@ Aşağıdakileri yap:
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
 
+let surucuYasi = 20;
+if(surucuYasi > 18){
+  console.log(true);
+}
+else
+console.log(false);
+
 /*
 Görev 1b - Değerler (puanlamaya dahil değildir)
 
@@ -32,6 +39,13 @@ Aşağıdakileri yap:
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
 
+let birinciDeger = 5;
+let ikinciDegeri = 10;
+if(birinciDeger < ikinciDegeri){
+  birinciDeger = ikinciDegeri + birinciDeger;
+  console.log(birinciDeger);
+}
+
 /*
 Görev 1c - String bir değeri Number'a dönüştürün (puanlamaya dahil değildir)
 
@@ -43,6 +57,10 @@ Aşağıdakileri yap:
    İPUCU: Number metoduna bakabilirsin
 */
 
+let val = "1999";
+let val1 = Number(val);
+console.log(val1);
+
 /*
 Görev 1d - Çarpma
  
@@ -52,8 +70,10 @@ Aşağıdakileri yaparak carpma isimli fonksiyonu tamamla:
    3. console.log(carpma(7,4)) ile yazdığın fonsiyonu test edin. Console'da sonucu 28 olarak görmelisin.
 */
 
-function carpma(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function carpma(a,b) {
+  let multiply = a*b;
+  console.log(multiply);
+  return multiply;
 }
 
 /* Görev 2 : Köpeğin Yaşı */
@@ -65,10 +85,12 @@ Aşağıdakileri yap:
  3. Hesaplanan köpeğin yaşını dönün.
  */
 
-function kopeginYasi(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function kopeginYasi(x) {
+  let dogAge = x * 7;
+  return dogAge;
 }
 
+kopeginYasi(5);
 /* Görev 3 */
 /*
 Aşağıdakileri oyun isimli fonksiyonu kullanarak yap.
@@ -82,9 +104,21 @@ Aşağıdakileri oyun isimli fonksiyonu kullanarak yap.
 
 OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı yener | veya beraberlik olur.
 */
-
 function oyun(oyuncu, bilgisayar) {
-  /*buraya kodunu yazabilirsin*/
+  
+  // Beraberlik durumu
+  if(oyuncu === bilgisayar){
+    return "Beraberlik";
+  }
+
+  //Kazanma durumu
+  if(oyuncu === "Makas" && bilgisayar === "Kağıt" || oyuncu === "Taş" && bilgisayar === "Makas" || oyuncu === "Kağıt" && bilgisayar === "Taş"){
+    return "Kazandın!";
+  }
+  //Kaybetme durumu
+    else{
+    return "Kaybettin!";
+  }
 }
 
 // Şimdi Taş, Kağıt, Makas oyununu bilgisayara karşı oynayalım!
@@ -103,6 +137,12 @@ function oyun(oyuncu, bilgisayar) {
 Örn: console.log(oyun("Makas",bilgisayarinSecimi()))
 */
 
+function bilgisayarinSecimi(){
+  let tkm = ["Taş","Kağıt","Makas"];
+  return tkm[Math.floor(Math.random()*tkm.length)];
+}
+console.log(oyun("Makas",bilgisayarinSecimi()));
+
 /* Görev 4 : Metrik Dönüştürücü */
 
 //Görev 4a - Kilometreden Mil
@@ -113,9 +153,10 @@ Aşağdaki milDonusturucu fonksiyonunu aşağıdakileri kullanarak tamamla:
 3. Mil değerini geri dönün
 */
 
-function milDonusturucu(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function milDonusturucu(a) {
+ return a * 0.621371;
 }
+
 
 //Görev 4b - Santimetreden Feet
 /*
@@ -127,8 +168,8 @@ Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yap:
 Google'da arama ipucu: "feet cm dönüştürme"
 */
 
-function feetDonusturucu(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function feetDonusturucu(b) {
+    return b / 30.48;
 }
 
 /* Görev 5 : 5 küçük maymun yatakta zıplamış şarkısını çocuklar için hazırladığımı varsayalım. https://www.youtube.com/watch?v=e4EJ34xnlxk */
@@ -144,8 +185,16 @@ Aşağıdakileri cocukSarkisi fonksiyonunda yap:
 4. Bu döngüde, her seferinde cocukSarkisi fonsiyonu çalışsın ve console.log'a dönen metni yazdırsın.
 */
 
-function cocukSarkisi(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function cocukSarkisi(maymun) {
+
+    return `${maymun} küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!`
+  
+}
+let maymun = 5;
+for (let index = 0; index < maymun; index++) {
+  cocukSarkisi(maymun);
+  maymun--;
+  
 }
 
 /* Görev 6 : Not Hesaplayıcı */
@@ -163,9 +212,29 @@ Aşağdakileri notHesapla fonksiyonunda yap.
  dönün
 */
 
-function notHesapla(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function notHesapla(x) {
+  if(x <=100 && x >= 90){
+    return `A aldın`;
+  }
+  else if(x <=89 && x >= 80)
+  {
+    return `B aldın`;
+  }
+  else if(x <=79 && x >= 70)
+  {
+    return `C aldın`;
+  }
+  else if(x <=69 && x >= 60)
+  {
+    return `D aldın`;
+  }
+  else(x <=59 && x >= 0)
+  {
+    return `F aldın`;
+  }
 }
+
+notHesapla(50);
 
 /* Bonus Çalışma: Sesli harf sayacı - Kaç tane sesli harf var? */
 
@@ -178,9 +247,73 @@ Aşağıdakileri sesliHarfSayaci fonskiyonunda yap.
 İPUCU - .includes() methoduna bakabilirsin. (https://www.w3schools.com/jsref/jsref_includes.asp)
 */
 
-function sesliHarfSayaci(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+//a e, ı, i, o, ö, u, ü 
+
+function sesliHarfSayaci(x) {
+
+  /*
+    let numberOfLetters = 0;
+  for (let index = 0; index < x.length; index++) {
+    const element = x[index];
+    if(element == x.includes("a",0))
+    {
+      numberOfLetters++;
+      
+    } 
+    else if(element == x.includes("e",0))
+    {
+      numberOfLetters++;
+    } 
+    else if(element == x.includes("ı",0))
+    {
+      numberOfLetters++;
+    } 
+    else if( element == x.includes("i",0))
+    {
+      numberOfLetters++;
+    } 
+    else if(element == x.includes("o",0))
+    {
+      numberOfLetters++;
+    } 
+    else if(element == x.includes("ö",0))
+    {
+      numberOfLetters++;
+    } 
+    else if(element== x.includes("u",0))
+    {
+      numberOfLetters++;
+    } 
+    else if (element == x.includes("ü",0))
+    {
+      numberOfLetters++;
+    } 
+    else {
+      console.log(numberOfLetters);
+      return numberOfLetters;
+    }
+  }  
+
+  console.log(numberOfLetters);
+  */
+  let wordTwo = ["a", "e", "ı","i", "o", "ö", "u", "ü"];
+  let counter = 0;
+  for (let index = 0; index < x.length; index++) {
+    if (x.substring(index) === wordTwo[index])
+  {  
+      counter++;
+      console.log(counter);
+      return true;
+  } else {
+      console.log(counter);
+      return false;
+  }
+    
+  }
 }
+
+sesliHarfSayaci("Bu bir string olabilir.");
+
 
 /* Lütfen bu satırın alt tarafını değiştirmeyin */
 function sa() {
